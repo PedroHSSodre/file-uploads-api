@@ -28,7 +28,7 @@ return new class extends Migration
                 ->foreign('folder_parent')
                 ->references('id')
                 ->on('folders')
-                ->nullOnDelete();
+                ->cascadeOnDelete();
 
             $table
                 ->foreign('folder_user_id')

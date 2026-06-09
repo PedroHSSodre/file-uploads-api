@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Folders\Application\UseCase\CreateFolder\CreateFolderCommand;
 use App\Folders\Application\UseCase\CreateFolder\CreateFolderHandler;
+use App\Folders\Application\UseCase\DeleteFolder\DeleteFolderHandler;
 use App\Folders\Application\UseCase\ListFolder\ListFolderHandler;
 use App\Http\Resources\FolderResource;
 use App\Users\Domain\Entity\User;
@@ -39,5 +40,15 @@ class FolderController
         $authenticatedUser = $request->attributes->get('authenticated_user');
 
         return response()->json(FolderResource::collection($handler->handle($authenticatedUser->id)), 200);
+    }
+
+    public function delete(Request $request, DeleteFolderHandler $handler): JsonResponse
+    {
+        /** @var User $authenticatedUser */
+        $authenticatedUser = $request->attributes->get('authenticated_user');
+
+        $handler->handle($request->route('id'), $authenticatedUser->id);
+
+        return response()->json(null, 204);
     }
 }

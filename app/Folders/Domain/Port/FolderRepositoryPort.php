@@ -14,4 +14,6 @@ interface FolderRepositoryPort
 
     public function findByUserParentAndName(string $userId, ?string $parentId, string $name): ?Folder;
     public function findAllByUserId(string $userId): array;
+
+    public function deleteById(string $id, string $userId): void;
 }
