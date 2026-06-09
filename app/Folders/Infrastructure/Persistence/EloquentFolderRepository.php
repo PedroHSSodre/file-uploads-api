@@ -48,6 +48,24 @@ class EloquentFolderRepository implements FolderRepositoryPort
         return $model instanceof EloquentFolderModel ? $this->toDomain($model) : null;
     }
 
+    public function findAllByUserId(string $userId): array
+    {
+        $models = EloquentFolderModel::query()
+            ->where('folder_user_id', $userId)
+            ->orderBy('folder_name')
+            ->get();
+
+        return $models->map(fn(EloquentFolderModel $model) => $this->toDomain($model))->all();
+    }
+
+    public function deleteById(string $id, string $userId): void
+    {
+        EloquentFolderModel::query()
+            ->where('id', $id)
+            ->where('folder_user_id', $userId)
+            ->delete();
+    }
+
     private function toDomain(EloquentFolderModel $model): Folder
     {
         return new Folder(
