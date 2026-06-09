@@ -18,6 +18,12 @@ return new class extends Migration
             $table->uuid('folder_user_id');
             $table->timestamps();
 
+            $table->unique([
+                'folder_user_id',
+                'folder_parent',
+                'folder_name',
+            ], 'folders_user_parent_name_unique');
+
             $table
                 ->foreign('folder_parent')
                 ->references('id')
