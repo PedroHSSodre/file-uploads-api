@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\UserAccess\Infrastructure\Security;
+namespace App\Users\Infrastructure\Security;
 
-use App\UserAccess\Domain\Port\PasswordHasherPort;
+use App\Users\Domain\Port\PasswordHasherPort;
 use Illuminate\Support\Facades\Hash;
 
 class LaravelPasswordHasherAdapter implements PasswordHasherPort

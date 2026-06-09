@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UserAccess\Domain\Port;
+namespace App\Users\Domain\Port;
 
 interface PasswordHasherPort
 {

@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\UserAccess\Infrastructure\Security;
+namespace App\Users\Infrastructure\Security;
 
-use App\UserAccess\Domain\Entity\User;
-use App\UserAccess\Domain\Port\JwtTokenPort;
+use App\Users\Domain\Entity\User;
+use App\Users\Domain\Port\JwtTokenPort;
 use JsonException;
 use RuntimeException;
 use Throwable;

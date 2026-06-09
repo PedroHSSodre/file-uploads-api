@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace App\UserAccess\Infrastructure\Persistence;
+namespace App\Users\Infrastructure\Persistence;
 
-use App\UserAccess\Domain\Entity\User;
-use App\UserAccess\Domain\Port\UserRepositoryPort;
+use App\Users\Domain\Entity\User;
+use App\Users\Domain\Port\UserRepositoryPort;
 
 class EloquentUserRepositoryAdapter implements UserRepositoryPort
 {

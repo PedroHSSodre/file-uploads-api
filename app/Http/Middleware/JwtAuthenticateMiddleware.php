@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
-use App\UserAccess\Domain\Port\JwtTokenPort;
-use App\UserAccess\Domain\Port\UserRepositoryPort;
+use App\Users\Domain\Port\JwtTokenPort;
+use App\Users\Domain\Port\UserRepositoryPort;
 use Closure;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

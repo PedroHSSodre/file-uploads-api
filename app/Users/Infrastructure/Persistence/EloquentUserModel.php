@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\UserAccess\Infrastructure\Persistence;
+namespace App\Users\Infrastructure\Persistence;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
 

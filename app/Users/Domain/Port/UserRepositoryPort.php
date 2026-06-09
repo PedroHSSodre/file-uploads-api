@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\UserAccess\Domain\Port;
+namespace App\Users\Domain\Port;
 
-use App\UserAccess\Domain\Entity\User;
+use App\Users\Domain\Entity\User;
 
 interface UserRepositoryPort
 {
