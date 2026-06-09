@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 
 use App\Folders\Application\UseCase\CreateFolder\CreateFolderCommand;
 use App\Folders\Application\UseCase\CreateFolder\CreateFolderHandler;
+use App\Folders\Application\UseCase\ListFolder\ListFolderHandler;
 use App\Http\Resources\FolderResource;
 use App\Users\Domain\Entity\User;
 use Illuminate\Http\JsonResponse;
@@ -30,5 +31,13 @@ class FolderController
         );
 
         return response()->json(FolderResource::toArray($handler->handle($command)), 201);
+    }
+
+    public function list(Request $request, ListFolderHandler $handler): JsonResponse
+    {
+        /** @var User $authenticatedUser */
+        $authenticatedUser = $request->attributes->get('authenticated_user');
+
+        return response()->json(FolderResource::collection($handler->handle($authenticatedUser->id)), 200);
     }
 }
